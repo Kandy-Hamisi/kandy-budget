@@ -1,0 +1,260 @@
+/* general styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: none;
+}
+
+body {
+  background: #e4ece3;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+
+/* end of general styles */
+
+/* navbar styles */
+
+.header-section {
+  /* width: calc(100% - 240px); */
+  background: #bee4b4;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  /* left: 240px; */
+  padding: 0.5em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  margin-left: 3em;
+  margin-right: 2.5em;
+}
+
+.header-logo h1 {
+  font-size: 2em;
+}
+
+.navigation {
+  margin-right: 2.35em;
+}
+
+.menu-nav {
+  display: flex;
+}
+
+.menu-nav-item {
+  margin-right: 1em;
+}
+
+.right-container {
+  display: flex;
+  align-items: center;
+  margin-right: 2.35em;
+}
+
+.right-container .add-record {
+  margin-right: 20px;
+}
+
+.add-record button {
+  outline: none;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  background: #9ebce9;
+  color: #fff;
+}
+
+.account-info .user-name {
+  cursor: pointer;
+}
+
+.account-modal {
+  position: absolute;
+  right: 1rem;
+  top: 3rem;
+  
+}
+
+.modal-card {
+  border: 1px solid #333;
+  /* padding: 10px 20px; */
+  width: 125px;
+  height: 200px;
+  border-radius: 5px;
+  background-color: aliceblue;
+}
+
+.card-menu li {
+  padding: 1em 0.5em;
+}
+
+.card-menu li.active {
+  background-color: rgb(187, 155, 155);
+}
+
+.card-menu li:hover {
+  background-color: rgb(187, 155, 155);
+  transition: 0.6s ease-in-out;
+}
+/* end of navbar styles */
+
+/* sidebar styles */
+.sidebar-section {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  width: 240px;
+  background-color: bisque;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  .sidebar-section {
+    display: none;
+  }
+}
+
+.sidebar-header {
+  background-color: #bed4b9;
+  max-width: 240px;
+  padding: 20px 1em;
+  margin-bottom: 0.5em;
+}
+
+.bordered {
+  border-bottom: 1px solid #333;
+}
+
+.sidebar-menu li {
+  padding: 1em;
+}
+
+/* account section */
+.account-section {
+  margin-top: 5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.account-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.account {
+  background-color: aliceblue;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.account .logo {
+  margin-right: 5px;
+}
+
+.card-add button {
+  border: 1px solid #bed4b9;
+  padding: 10px 30px;
+  background: none;
+  border-style: dashed;
+}
+
+
+
+.card-add button:hover {
+  transition: 0.6s ease;
+  border: 1px solid #648eff;
+  color: #648eff;
+  border-style: dashed;
+}
+
+/* modal container */
+
+.main-modal-container {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.main-modal-card {
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 25px 15px;
+  border-radius: 10px;
+  /* overflow: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none; */
+  height: auto;
+  width: 30vw;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  /* background-color: antiquewhite; */
+  padding: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.form-group label {
+  margin: 10px;
+}
+
+.form-group input {
+  padding: 0.5em;
+  outline: none;
+  border-radius: 3px;
+  background-color: #bed4b9;
+  border: none;
+}
+
+.form-group button {
+  background-color: #79f879;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  transition: 0.6s ease;
+  background-color: #648eff;
+}
+
