@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { FaTimes } from 'react-icons/fa';
+import React, { useState, useContext } from 'react'
+import { FaTimes } from  'react-icons/fa';
+import { BudgetContext } from '../App';
 
-const ModalContainer = ({ closeModal, getAccounts }) => {
-    
+const AccountModal = () => {
+
     const [account, setAccounts] = useState([]);
     const [myAccount, setMyAccount] = useState({
         accountName: '',
@@ -10,15 +11,20 @@ const ModalContainer = ({ closeModal, getAccounts }) => {
         startingAmount: ''
     });
 
+    const modalContext = useContext(BudgetContext);
+    const closeModal = modalContext.closeModal;
+    const getAccounts = modalContext.getAccounts;
     
 
+    // handling input field change
     const handleChange = (e) => {
-        // check for the name of the target
+        // checking for the name of the target
         const name = e.target.name;
         const value = e.target.value;
         setMyAccount({...myAccount, [name]:value});
     }
 
+    // handling submission
     const handleSubmission = (e) => {
         e.preventDefault();
         if(myAccount.accountName && myAccount.accountType && myAccount.startingAmount) {
@@ -26,7 +32,7 @@ const ModalContainer = ({ closeModal, getAccounts }) => {
             setAccounts([...account, newAccount]);
             getAccounts(newAccount);
             
-            // console.log(newAccount);
+            console.log(newAccount);
 
             // TODO clear the form and exit modal
             setMyAccount({
@@ -42,66 +48,67 @@ const ModalContainer = ({ closeModal, getAccounts }) => {
         }
     }
 
+
+    // handling closing of modal
     const handleCloseModal = () => {
         closeModal();
     }
-
-    
-
-    return(
-        <section className='main-modal-container'>
-            <div className="main-modal-card">
-                <div className="modal-header">
-                    <h3>ADD ACCOUNT</h3>
-                    <FaTimes onClick={handleCloseModal}/>
-                </div>
-
-                <div className="modal-body">
-                    <div className="form-section">
-                        <form action="" name='myForm'>
-                            <div className="form-group">
-                                <label htmlFor="accountName">Name</label>
+  return (
+    <section className='main-modal-container'>
+        <div className="main-modal-card">
+            <div className="modal-header">
+                <h3>ADD ACCOUNT</h3>
+                <FaTimes onClick={handleCloseModal}  />
+            </div>
+            <div className="modal-body">
+                <div className="form-section">
+                    <form action="" name="myForm">
+                        <div className="form-group">
+                            <label htmlFor="accountName">Name</label>
                             <input
                                 type="text"
                                 name="accountName"
                                 id="accountName"
-                                placeholder='Account name'
+                                placeholder='Account Name'
                                 value={myAccount.accountName}
                                 onChange={handleChange}
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="accountType">Account Type</label>
+                            <label htmlFor="accountType">AccountType</label>
                             <input
                                 type="text"
                                 name="accountType"
                                 id="accountType"
-                                placeholder='Account type'
+                                placeholder='Account Type'
                                 value={myAccount.accountType}
                                 onChange={handleChange}
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="accountType">Starting Amount</label>
+                            <label htmlFor="startingAmount">Starting Amoount</label>
                             <input
                                 type="text"
                                 name="startingAmount"
                                 id="startingAmount"
-                                placeholder='0'
+                                placeholder='Starting Amount'
                                 value={myAccount.startingAmount}
                                 onChange={handleChange}
                             />
                         </div>
                         <div className="form-group">
-                            <button type='button' onClick={handleSubmission}>Save</button>
+                            <button type='button' onClick={handleSubmission}>
+                                Save
+                            </button>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
+
     </section>
-    )
+  )
 }
 
-
-export default ModalContainer;
+export default AccountModal
