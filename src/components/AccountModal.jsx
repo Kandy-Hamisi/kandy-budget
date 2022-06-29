@@ -32,7 +32,7 @@ const AccountModal = () => {
             setAccounts([...account, newAccount]);
             getAccounts(newAccount);
             
-            console.log(newAccount);
+            // console.log(newAccount);
 
             // TODO clear the form and exit modal
             setMyAccount({
@@ -72,6 +72,7 @@ const AccountModal = () => {
                                 placeholder='Account Name'
                                 value={myAccount.accountName}
                                 onChange={handleChange}
+                                className="form-control"
                             />
                         </div>
                         <div className="form-group">
@@ -83,6 +84,7 @@ const AccountModal = () => {
                                 placeholder='Account Type'
                                 value={myAccount.accountType}
                                 onChange={handleChange}
+                                className="form-control"
                             />
                         </div>
                         <div className="form-group">
@@ -94,6 +96,7 @@ const AccountModal = () => {
                                 placeholder='Starting Amount'
                                 value={myAccount.startingAmount}
                                 onChange={handleChange}
+                                className="form-control"
                             />
                         </div>
                         <div className="form-group">

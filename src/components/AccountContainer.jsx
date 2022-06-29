@@ -15,13 +15,21 @@ const AccountContainer = () => {
     const accountObjects = useContext(BudgetContext);
     const modalDisplay = accountObjects.modalState;
     const addedAccounts = accountObjects.addedAccounts;
-    console.log(modalDisplay);
+    const getSpecificAccountDetails = accountObjects.getSpecificAccountDetails;
+    // console.log(modalDisplay);
 
     
     // handle account display
     // const handleAccountDisplay = () => {
     //     dispatch({type: 'OPEN_MODAL'});
     // }
+
+    const showId = (id) => {
+        let specificAccount = addedAccounts.filter((account) => account.id === id);
+        console.log(specificAccount);
+        getSpecificAccountDetails(specificAccount[0].id);
+    }
+
   return (
     <section className='account-section'>
         <div className="account-container">
@@ -29,7 +37,7 @@ const AccountContainer = () => {
             {
                 addedAccounts.map(bankAccount => {
                     return (
-                        <article key={bankAccount.id} className="account">
+                        <article key={bankAccount.id} className="account" onClick={() => showId(bankAccount.id)}>
                             <div className="logo"></div>
                             <h5>{bankAccount.accountName}</h5>
                             <h6>KES {bankAccount.startingAmount}</h6>

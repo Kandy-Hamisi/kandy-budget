@@ -236,7 +236,7 @@ a {
   margin: 10px;
 }
 
-.form-group input {
+.form-group .form-control {
   padding: 0.5em;
   outline: none;
   border-radius: 3px;
