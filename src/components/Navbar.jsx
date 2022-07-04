@@ -1,9 +1,16 @@
-import React, { useState} from 'react'
+import React, { useContext, useState} from 'react'
+import { BudgetContext } from '../App';
+import RecordModal from './RecordModal';
+
 
 
 const Navbar = () => {
 
     const [showModal, setShowModal] = useState(false);
+
+    const recordsContext = useContext(BudgetContext);
+    const handleRecordInput = recordsContext.handleRecordModalDisplay;
+    const recordModalDisplay = recordsContext.recordModalState;
 
     const handleModalDisplay = () => {
         if(!showModal) {
@@ -12,6 +19,8 @@ const Navbar = () => {
             setShowModal(false);
         }
     }
+
+    
 
   return (
     <header className='header-section'>
@@ -32,7 +41,7 @@ const Navbar = () => {
         </div>
         <div className="right-container">
             <div className="add-record">
-                <button type="button">Record</button>
+                <button type="button" onClick={handleRecordInput}>Record</button>
             </div>
             <div className="account-info">
                 <h5 className='user-name' onClick={handleModalDisplay}>Hamisi Kandy</h5>
@@ -49,6 +58,9 @@ const Navbar = () => {
                 </ul>
             </div>
         </div>
+        }
+        {
+            recordModalDisplay.isRecordModalOpen && <RecordModal />
         }
     </header>
   )

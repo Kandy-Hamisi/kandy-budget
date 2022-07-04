@@ -236,7 +236,7 @@ a {
   margin: 10px;
 }
 
-.form-group input {
+.form-group .form-control {
   padding: 0.5em;
   outline: none;
   border-radius: 3px;
@@ -258,3 +258,21 @@ a {
   background-color: #648eff;
 }
 
+/* card container section */
+.card-container-section {
+  margin-top: 3rem;
+  padding: 3rem;
+  background-color: rgb(196, 212, 203);
+}
+
+.account-card {
+  background-color: #fff;
+  width: 25rem;
+  height: 20rem;
+  padding: 10px 20px;
+  border-radius: 1rem;
+}
+
+.account-card-header {
+  margin: 1em 0;
+}
