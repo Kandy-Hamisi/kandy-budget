@@ -5,6 +5,8 @@ import { categories, recordTypes } from '../data';
 
 const RecordModal = () => {
 
+    // const RECORD_STORAGE_KEY = 'records';
+
     const [record, setRecords] = useState([]);
     const [myRecord, setMyRecords] = useState({
         recordType: '',
@@ -17,6 +19,11 @@ const RecordModal = () => {
     const closeModal = recordModalContext.closeRecordModal;
     const addedAccounts = recordModalContext.addedAccounts;
     const getSavedRecords = recordModalContext.getSavedRecords;
+    // const savedRecords = recordModalContext.savedRecords;
+
+    // useEffect(()=> {
+    //     localStorage.setItem(RECORD_STORAGE_KEY, JSON.stringify(savedRecords));
+    // }, [savedRecords]);
     // const getAccounts = modalContext.getAccounts;
     
 
@@ -36,8 +43,6 @@ const RecordModal = () => {
             setRecords([...record, newRecord]);
             getSavedRecords(newRecord);
             
-            console.log(newRecord);
-
             // TODO clear the form and exit modal
             setMyRecords({
                 recordType: '',
