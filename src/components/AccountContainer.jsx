@@ -15,7 +15,7 @@ const AccountContainer = () => {
     const accountObjects = useContext(BudgetContext);
     const modalDisplay = accountObjects.modalState;
     const addedAccounts = accountObjects.addedAccounts;
-    const getSpecificAccountDetails = accountObjects.getSpecificAccountDetails;
+    const getSpecificRecords = accountObjects.getSpecificRecords;
     const savedRecords = accountObjects.savedRecords;
     // console.log(modalDisplay);
 
@@ -25,15 +25,15 @@ const AccountContainer = () => {
     //     dispatch({type: 'OPEN_MODAL'});
     // }
 
-    const showId = (id, accountName) => {
-        let specificAccount = addedAccounts.filter((account) => account.id === id);
-        console.log(specificAccount);
-        getSpecificAccountDetails(specificAccount[0].id);
+    // show the records of a specific account
+    const showRecords = (accountName) => {
+        
         let kandyRecords = savedRecords.filter((record) => {
             return record.accountName === accountName;
         })
         console.log(accountName)
         console.log(kandyRecords);
+        getSpecificRecords(kandyRecords);
         
 
     }
@@ -45,7 +45,7 @@ const AccountContainer = () => {
             {
                 addedAccounts.map(bankAccount => {
                     return (
-                        <article key={bankAccount.id} className="account" onClick={() => showId(bankAccount.id, bankAccount.accountName)}>
+                        <article key={bankAccount.id} className="account" onClick={() => showRecords(bankAccount.accountName)}>
                             <div className="logo"></div>
                             <h5>{bankAccount.accountName}</h5>
                             <h6>KES {bankAccount.startingAmount}</h6>
