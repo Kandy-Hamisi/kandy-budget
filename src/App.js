@@ -21,6 +21,7 @@ const initialState = {
 
 const App = () => {
   const LOCAL_STORAGE_KEY = "myaccounts";
+  const RECORDS_STORAGE_KEY = 'records';
   // modal reducer
   const [modalState, dispatch] = useReducer(reducer, defaultState);
 
@@ -37,7 +38,7 @@ const App = () => {
   // specific account details
   const [specificAccountDetails, setSpecificAccountDetails] = useState([]);
 
-  console.log(specificAccountDetails);
+  // console.log(specificAccountDetails);
   // function to get the saved records
   const getSavedRecords = (recordsArray) => {
     setSavedRecords([...savedRecords, recordsArray]);
@@ -55,6 +56,20 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(addedAccounts));
   }, [addedAccounts]);
+
+  // retrieve the records
+
+  useEffect(() => {
+    const retrieveRecords = JSON.parse(localStorage.getItem(RECORDS_STORAGE_KEY));
+    if (retrieveRecords) {
+      setSavedRecords(retrieveRecords);
+    }
+  }, []);
+
+  // adding the saved records to the local storage
+  useEffect(() => {
+    localStorage.setItem(RECORDS_STORAGE_KEY, JSON.stringify(savedRecords));
+  }, [savedRecords]);
 
 
   // a function to get the added accounts from the modal

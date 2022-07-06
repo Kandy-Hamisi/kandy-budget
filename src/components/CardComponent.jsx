@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
-import { BudgetContext } from '../App'
+import React from 'react'
+// import { BudgetContext } from '../App'
 import CashFlow from './cards/CashFlow'
 
 const CardComponent = () => {
 
-  const myBudgetContext = useContext(BudgetContext);
-  const savedRecords = myBudgetContext.savedRecords;
-  console.log(savedRecords);
+  // const myBudgetContext = useContext(BudgetContext);
+  // const savedRecords = myBudgetContext.savedRecords;
+  // console.log(savedRecords);
 
   return (
     <article className='account-card'>
