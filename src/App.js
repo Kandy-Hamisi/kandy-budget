@@ -36,7 +36,7 @@ const App = () => {
   const [savedRecords, setSavedRecords] = useState([]);
 
   // specific account details
-  const [specificAccountDetails, setSpecificAccountDetails] = useState([]);
+  const [specificRecords, setSpecificRecords] = useState([]);
 
   // console.log(specificAccountDetails);
   // function to get the saved records
@@ -95,9 +95,9 @@ const App = () => {
     dispatcher({ type: 'CLOSE_MODAL'});
   }
 
-  // function to get the details of the specific account
-  const getSpecificAccountDetails = (specificAccount) => {
-    setSpecificAccountDetails([...specificAccountDetails, specificAccount]);
+  // function to get the details of the specific record
+  const getSpecificRecords = (specificAccountRecord) => {
+    setSpecificRecords([...specificRecords, specificAccountRecord]);
   }
 
 
@@ -115,7 +115,7 @@ const App = () => {
             closeRecordModal,
             getAccounts,
             getSavedRecords,
-            getSpecificAccountDetails,
+            getSpecificRecords,
             addedAccounts,
             savedRecords
           }

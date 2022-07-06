@@ -6,6 +6,12 @@ import uuid from 'react-uuid';
 
 const RecordModal = () => {
 
+    const now = new Date();
+    const theDate = now.toDateString();
+    console.log(theDate);
+    const dateArray = theDate.split(" ");
+    console.log(dateArray);
+
     // const RECORD_STORAGE_KEY = 'records';
 
     const [record, setRecords] = useState([]);
