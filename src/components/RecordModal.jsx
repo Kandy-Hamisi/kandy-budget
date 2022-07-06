@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { FaTimes } from  'react-icons/fa';
 import { BudgetContext } from '../App';
 import { categories, recordTypes } from '../data';
+import uuid from 'react-uuid';
 
 const RecordModal = () => {
 
@@ -39,7 +40,7 @@ const RecordModal = () => {
     const handleSubmission = (e) => {
         e.preventDefault();
         if(myRecord.recordType && myRecord.accountName && myRecord.category && myRecord.amount) {
-            const newRecord = {...myRecord, id: new Date().getTime().toString()};
+            const newRecord = {...myRecord, id: uuid()};
             setRecords([...record, newRecord]);
             getSavedRecords(newRecord);
             
