@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { FaTimes } from  'react-icons/fa';
 import { BudgetContext } from '../App';
-import uuid from 'react-uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 const AccountModal = () => {
 
@@ -29,7 +29,7 @@ const AccountModal = () => {
     const handleSubmission = (e) => {
         e.preventDefault();
         if(myAccount.accountName && myAccount.accountType && myAccount.startingAmount) {
-            const newAccount = {...myAccount, id: uuid()};
+            const newAccount = {...myAccount, id: uuidv4()};
             setAccounts([...account, newAccount]);
             getAccounts(newAccount);
             

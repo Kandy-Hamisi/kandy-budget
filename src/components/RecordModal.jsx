@@ -2,15 +2,30 @@ import React, { useState, useContext } from 'react'
 import { FaTimes } from  'react-icons/fa';
 import { BudgetContext } from '../App';
 import { categories, recordTypes } from '../data';
-import uuid from 'react-uuid';
+// import uuid from 'react-uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 const RecordModal = () => {
 
-    const now = new Date();
-    const theDate = now.toDateString();
-    console.log(theDate);
-    const dateArray = theDate.split(" ");
-    console.log(dateArray);
+    // const transDatesObj = {
+    //     day: "",
+    //     month: "",
+    //     date: "",
+    //     year: ""
+    // }
+
+    // console.log(transDatesObj);
+
+
+    // const now = new Date();
+    // const theDate = now.toDateString();
+    // console.log(theDate);
+    // const dateArray = theDate.split(" ");
+    // console.log(dateArray);
+    // dateArray.forEach(el => {
+
+    // })
+
 
     // const RECORD_STORAGE_KEY = 'records';
 
@@ -46,7 +61,7 @@ const RecordModal = () => {
     const handleSubmission = (e) => {
         e.preventDefault();
         if(myRecord.recordType && myRecord.accountName && myRecord.category && myRecord.amount) {
-            const newRecord = {...myRecord, id: uuid()};
+            const newRecord = {...myRecord, id: uuidv4()};
             setRecords([...record, newRecord]);
             getSavedRecords(newRecord);
             
